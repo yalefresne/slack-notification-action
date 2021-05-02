@@ -27,3 +27,6 @@ runs:
     - ${{ inputs.build_status }}
     - ${{ inputs.deploy_status }}
     - ${{ inputs.branch_name }}
+branding:
+  icon: 'message-circle'
+  color: 'black'
