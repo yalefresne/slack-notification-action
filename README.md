@@ -15,7 +15,7 @@ See [action.yml](./action.yml) for more detailed information.
 
 ## More informations
 `webhook_slack` : Your Incoming Webhook URL must not be publicly exposed, so store it in a [secret github](https://docs.github.com/en/actions/reference/encrypted-secrets).  
-`channel_name`: On recent version of Incoming Webhook, this varable has no effect.
+`channel_name`: On recent version of Incoming Webhook, this variable has no effect.
 
 ## Example usage
 
