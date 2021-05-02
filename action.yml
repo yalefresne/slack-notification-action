@@ -9,10 +9,12 @@ inputs:
     required: true
   build_status:
     description: 'Status of the build job'
-    required: true
+    default: 'success'
+    required: false
   deploy_status:
     description: 'Status of the deploy job'
-    required: true
+    default: 'success'
+    required: false
   branch_name:
     description: 'Name of the branch you want to restrict'
     required: false
@@ -25,4 +27,3 @@ runs:
     - ${{ inputs.build_status }}
     - ${{ inputs.deploy_status }}
     - ${{ inputs.branch_name }}
-
