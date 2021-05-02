@@ -1,4 +1,4 @@
-name: 'Slack Notification'
+name: 'Slack Notification for CI/CD'
 description: 'Notify a channel slack about CI/CD jobs'
 inputs:
   webhook_slack:
