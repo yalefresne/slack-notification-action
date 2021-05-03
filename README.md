@@ -9,9 +9,8 @@ See [action.yml](./action.yml) for more detailed information.
 
 * `webhook_slack` - Your Incoming Webhook URL
 * `channel_name` - Slack channel's name where the message will be posted
-* `build_status` - Build job's status
-* `deploy_status` - Deploy job's status
-* `branch_name` - To send notification only for a specific branch (Optionnal)
+* `build_status` - Build job's status (Optionnal)
+* `deploy_status` - Deploy job's status (Optionnal)
 
 ## More informations
 `webhook_slack` : Your Incoming Webhook URL must not be publicly exposed, so store it in a [secret github](https://docs.github.com/en/actions/reference/encrypted-secrets).  
@@ -54,7 +53,6 @@ jobs:
         channel_name: "yourChannel"
         build_status: ${{ needs.build.outputs.status }}
         deploy_status: ${{ needs.deploy.outputs.status }}
-        branch_name: "yourBranch"
 ```
 
 ## Notifications overview

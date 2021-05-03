@@ -6,9 +6,11 @@ if [[ -n $INPUT_BRANCH_NAME && ${GITHUB_REF#refs/heads/} != $INPUT_BRANCH_NAME ]
 fi
 
 if [[ $INPUT_BUILD_STATUS == "success" && $INPUT_DEPLOY_STATUS == "success" ]]; then
-	MESSAGE="\":tada: *$GITHUB_REPOSITORY* $GITHUB_WORKFLOW has succeeded!"
+	MESSAGE=":tada: *$GITHUB_REPOSITORY* $GITHUB_WORKFLOW has succeeded!"
 elif [[ $INPUT_BUILD_STATUS == "failure" || $INPUT_DEPLOY_STATUS == "failure" ]]; then
-	MESSAGE="\":warning: *$GITHUB_REPOSITORY* $GITHUB_WORKFLOW has failed!"
+	MESSAGE=":warning: *$GITHUB_REPOSITORY* $GITHUB_WORKFLOW has failed!"
 fi
 
-curl -X POST --data-urlencode "payload={\"channel\": \"#$INPUT_CHANNEL_NAME\", \"username\": \"Github\", \"text\": $MESSAGE <https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID|Click here> for details\", \"icon_emoji\": \":octocat:\"}" $INPUT_WEBHOOK_SLACK
+LINK="<https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID|Click here> for details"
+
+curl -X POST --data-urlencode "payload={\"channel\": \"#$INPUT_CHANNEL_NAME\", \"username\": \"Github\", \"text\": \"$MESSAGE $LINK\", \"icon_emoji\": \":octocat:\"}" $INPUT_WEBHOOK_SLACK

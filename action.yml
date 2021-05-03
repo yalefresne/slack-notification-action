@@ -15,9 +15,6 @@ inputs:
     description: 'Status of the deploy job'
     default: 'success'
     required: false
-  branch_name:
-    description: 'Name of the branch you want to restrict'
-    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -26,7 +23,6 @@ runs:
     - ${{ inputs.channel_name }}
     - ${{ inputs.build_status }}
     - ${{ inputs.deploy_status }}
-    - ${{ inputs.branch_name }}
 branding:
   icon: 'message-circle'
   color: 'black'
